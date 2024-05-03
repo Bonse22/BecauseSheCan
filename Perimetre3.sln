@@ -1,25 +1,68 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34622.214
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perimetre3", "Perimetre3.csproj", "{CD4D2274-110B-4EDE-A79B-54284EBB9BE1}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CD4D2274-110B-4EDE-A79B-54284EBB9BE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD4D2274-110B-4EDE-A79B-54284EBB9BE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD4D2274-110B-4EDE-A79B-54284EBB9BE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD4D2274-110B-4EDE-A79B-54284EBB9BE1}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6500014D-CDC4-4DFE-9119-6DC7ACCD5AD5}
-	EndGlobalSection
-EndGlobal
+// See https://aka.ms/new-console-template for more information
+using System;
+using System.Collections.Generic;
+//calculating area and perimeter of square
+//creating square class
+class Square
+{
+    //creating a method to calculate area of square
+    public double Area(double sideLength)
+    {
+        return sideLength * sideLength;
+    }
+    //creating a method to calculate perimeter of square
+    public double Perimeter(double sideLength)
+    {
+        return 4 * sideLength;
+    }
+}
+//calculating area and perimeter of rectangle
+//creating rectangle class
+class Rectangle
+{
+    //creating a method to calculate area of rectangle
+    public double Area(double length, double width)
+    {
+        return length * width;
+    }
+    //creating a method to calculate perimeter of rectangle
+    public double Perimeter(double length, double width)
+    {
+        return 2 * (length + width);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //calculations for area and perimeter of square
+        double sideLength = 8;
+        Square square = new Square();
+        double squareArea = square.Area(sideLength);
+        double squarePerimeter = square.Perimeter(sideLength);
+        Console.WriteLine("\nSQUARE: ");
+        Console.WriteLine("sideLength: " +sideLength);
+        Console.WriteLine("\nArea:" + squareArea );
+        Console.WriteLine("\nperimeter" + squarePerimeter);
+
+        //calculations for area and perimeter of rectangle
+        double length = 4;
+        double width = 6;
+        Rectangle rectangle = new Rectangle();
+        double rectangleArea = rectangle.Area(length, width);
+        double rectanglePerimeter = rectangle.Perimeter(length, width);
+        Console.WriteLine("\nRECTANGLE: ");
+        Console.WriteLine("\nlength: "+length);
+        Console.WriteLine("\nwidth: "+width);
+        Console.WriteLine("\nArea:" + rectangleArea);
+        Console.WriteLine("\nPerimeter:" + rectanglePerimeter);
+
+
+
+
+
+
+
+    }
+}
