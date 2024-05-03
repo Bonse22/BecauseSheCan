@@ -1,0 +1,51 @@
+// See https://aka.ms/new-console-template for more information
+using System;
+using System.Collections.Generic;
+//number guessing game
+namespace number_guessing
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Creating an instance of the Random class
+            Random random = new Random();
+            //Generates random interger greater than or equal to one but less than or equal to 10
+            int randomNumber = random.Next(1, 10);
+            //variable to store player's guess
+            int guess = 0;
+            //variable to store number of times the player attempted to guess a number correctly
+            int attempts = 0; //initializes attempts to 0
+            List<int> guesses = new List<int>();
+            //display message
+            Console.WriteLine("Welcome to my number guessing game!");
+            Console.WriteLine("Guess a number between 1 and 10");
+            while (guess != randomNumber)
+            {
+                guess = Convert.ToInt32(Console.ReadLine());
+                if (guess < randomNumber)
+                {
+                    Console.WriteLine("Higher");
+                    attempts++;
+                }
+                else if (guess > randomNumber)
+                {
+                    Console.WriteLine("Lower");
+                    attempts++;
+
+                } //number of attempts icrease each time a number is not guessed correctly
+                else
+                {
+                    Console.WriteLine("Congratulations! You guessed the number!");
+                    Console.WriteLine("It took you " + attempts + " attempts");
+                    Console.WriteLine("Your guesses were:");
+                    foreach (int g in guesses)
+                    {
+                        Console.Write(g + " ");
+                    }
+                }
+                guesses.Add(guess);
+            }
+        }
+    }
+}
