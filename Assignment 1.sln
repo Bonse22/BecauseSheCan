@@ -1,25 +1,112 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34622.214
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment 1", "Assignment 1.csproj", "{575166B0-A03E-4552-8810-2EB0A736D82A}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{575166B0-A03E-4552-8810-2EB0A736D82A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{575166B0-A03E-4552-8810-2EB0A736D82A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{575166B0-A03E-4552-8810-2EB0A736D82A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{575166B0-A03E-4552-8810-2EB0A736D82A}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F83881D9-E6B8-4609-A579-7F8E21BA7D46}
-	EndGlobalSection
-EndGlobal
+// See https://aka.ms/new-console-template for more information
+using System;
+using System.Collections.Generic;
+/*question 1
+Console.WriteLine("Welcome to PyClub KNUST");*/
+//question 2
+class Student
+{
+    public string firstName { get; set; }
+    public string surName { get; set; }
+    public string DateOfBirth { get; set; }
+    public string Nationality { get; set; }
+    public string cityMail { get; set; }
+    public string streetAddress { get; set; }
+    public string college { get; set; }
+    public string programOfStudy { get; set; }
+    public string ParentName { get; set; }
+    public string ParentContact { get; set; }
+    //building a constructor to initialize the Student object
+    public Student(string firstName, string surName, string DateOfBirth, string Nationality,
+        string cityMail, string streetAddress, string college, string programOfStudy, string ParentName, string ParentContact)
+    {
+        this.firstName = firstName;
+        this.surName = surName;
+        this.DateOfBirth = DateOfBirth;
+        this.Nationality = Nationality;
+        this.cityMail = cityMail;
+        this.streetAddress = streetAddress;
+        this.college = college;
+        this.programOfStudy = programOfStudy;
+        this.ParentName = ParentName;
+        this.ParentContact = ParentContact;
+
+    }
+    //method to display the student information
+    public void DisplayInfo()
+    {
+        Console.WriteLine("Student First Name: " + firstName);
+        Console.WriteLine("Student SurName: " + surName);
+        Console.WriteLine("Student Date of Birth: " + DateOfBirth);
+        Console.WriteLine("Student Nationality: " + Nationality);
+        Console.WriteLine("Student City Mail: " + cityMail);
+        Console.WriteLine("Student Street Address: " + streetAddress);
+        Console.WriteLine("Student College: " + college);
+        Console.WriteLine("Student Program of Study: " + programOfStudy);
+        Console.WriteLine("Parent Name: " + ParentName);
+        Console.WriteLine("Parent Contact: " + ParentContact);
+
+    }
+}
+
+class Program
+    {
+        static void Main()
+    {//creating a list to store the students information
+        List<Student> students = new List<Student>();
+            while (true)
+            {
+                Console.WriteLine("Enter Student First Name");
+                string firstName = Console.ReadLine();
+                Console.WriteLine("Enter Student SurName");
+                string surName = Console.ReadLine();
+                Console.WriteLine("Enter Student Date of Birth");
+                string DateOfBirth = Console.ReadLine();
+                Console.WriteLine("Enter Student Nationality");
+                string Nationality = Console.ReadLine();
+                Console.WriteLine("Enter Student City Mail");
+                string cityMail = Console.ReadLine();
+                Console.WriteLine("Enter Student Street Address");
+                string streetAddress = Console.ReadLine();
+                Console.WriteLine("Enter Student College");
+                string college = Console.ReadLine();
+                Console.WriteLine("Enter Student Program of Study");
+                string programOfStudy = Console.ReadLine();
+                Console.WriteLine("Enter Parent Name");
+                string ParentName = Console.ReadLine();
+                Console.WriteLine("Enter Parent Contact");
+                string ParentContact = Console.ReadLine();
+            //creating a new student object
+            Student student = new Student(firstName, surName, DateOfBirth, Nationality, cityMail,
+                    streetAddress, college, programOfStudy, ParentName, ParentContact);
+            //logic for adding the student object to the students list
+            students.Add(student);
+                Console.WriteLine("Do you want to add another student? (yes/no)");
+                string response = Console.ReadLine();
+                if(response.ToLower() == "no")
+            {
+                    break;
+                }
+                else if(response.ToLower() == "yes")
+            {
+                    continue;
+                }
+                else
+            {
+                    Console.WriteLine("Invalid response");
+                }
+
+
+
+        }//the list increases by one student after each iteration
+
+        //displaying the details of all students in the list
+        Console.WriteLine("\nStudents' information: ");
+        foreach (Student student in students)
+        {
+            student.DisplayInfo();
+        }
+
+    }
+    }
+
